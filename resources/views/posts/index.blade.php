@@ -1,0 +1,31 @@
+@extends('layouts.app')
+
+@section('content')
+<h1>Posts</h1>
+<!--iccheck kung merong laman sa database-->
+@if(count($posts) > 0 )
+<div class="card">
+        <ul class="list-group list-group-flush">
+<!--loop para ilabas yung mga laman ng database-->
+    @foreach($posts as $post)
+    
+        <div class="row">
+            <div class="col-md-4">
+                <img style="width: 100%" src="/storage/cove_images/{{$post->cover_image}}" alt="">
+            </div>
+            <div class="col-md-8">
+                <h3><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h3>
+                <small> {{ $post->created_at }} </small>
+            </div>
+        </div>
+
+       
+           
+        
+    
+    @endforeach
+         </ul>
+         </div>
+@endif
+
+@endsection
